@@ -7,14 +7,17 @@
 import warnings
 import os
 import time
-
+import streamlit as st
 warnings.filterwarnings("ignore")
 
-import streamlit as st
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 import joblib
+import streamlit as st
+from PIL import Image
+import os
+
 
 # ──────────────────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -391,8 +394,15 @@ def main():
     model, scaler, errors = load_artifacts()
     model_ok = model is not None and scaler is not None
 
+
+    st.set_page_config(
+        page_title="MindGuard AI | Burnout Predictor",
+        page_icon="logo.png",
+        layout="wide"
+    )
     # Navbar
     st.markdown(f"""
+    
     <div class="navbar">
         <div class="nav-brand">
             <div class="nav-logo">🧠</div>
